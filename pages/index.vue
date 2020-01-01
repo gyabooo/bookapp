@@ -31,7 +31,7 @@ const axios = require('axios');
 // let path = 'http://localhost:3000/api/sru?operation=searchRetrieve&maximumRecords=10&query=title%3d%22%e6%a1%9c%22%20AND%20from=%222018%22';
 // let path = '/api/sru?operation=searchRetrieve&maximumRecords=10&query=title%3d%22%e6%a1%9c%22%20AND%20from=%222018%22';
 // let path = '/api/opensearch?cnt=20&title=マリーアントワネット&ndc=2&dpid=iss-ndl-opac'
-let path = 'https://iss.ndl.go.jp/api/opensearch?cnt=20&title='
+let path = '/api/opensearch?cnt=20&title='
 
 export default {
   components: {
