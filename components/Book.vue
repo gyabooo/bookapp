@@ -16,7 +16,7 @@
 
 <script>
 const axios = require('axios');
-let path = '/thumbnail/';
+let path = 'https://iss.ndl.go.jp/thumbnail/';
 let no_image_path = '/no-image.png';
 
 export default {
