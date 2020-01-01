@@ -1,25 +1,32 @@
 <template>
-  <div class="columns is-multiline">
-    <section class="column is-full hero is-primary">
-      <div class="hero-body">
-        <div class="container">
-          <h1 class="title">
-            本検索アプリ
-          </h1>
-        </div>
-      </div>
-    </section>
-    <nuxt class="column is-full" />
-    <footer class="column is-full footer">
-      <div class="container">
-        <p>フッター</p>
-      </div>
+  <div id="wrap" class="columns">
+
+    <header id="header" class="section column has-background-primary">
+      <h1 class="title">
+        本検索アプリ
+      </h1>
+    </header>
+    
+    <div id="contents" class="section column">
+      <nuxt />
+    </div>
+
+    <footer id="footer" class="section column footer has-background-grey-lighter">
+      <p>フッター</p>
     </footer>
+
   </div>
 </template>
 
 <style lang="scss" scoped>
-.wrap {
-
+#wrap {
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
 }
+
+#contents {
+  flex-grow: 5;
+}
+
 </style>
