@@ -8,7 +8,7 @@
     "dev": "nuxt",
     "build": "nuxt build && netlify-lambda build functions/src",
     "start": "nuxt start",
-    "generate": "nuxt generate",
+    "generate": "nuxt generate && netlify-lambda build functions/src",
     "lambda": "netlify-lambda serve functions/src"
   },
   "dependencies": {
