@@ -10,7 +10,7 @@
 
       <div class="field has-addons">
         <div class="control is-expanded">
-          <input class="input" type="text" v-model="keyword">
+          <input class="input" type="text" v-model="keyword" :disabled="isSearch">
         </div>
         <div class="control">
           <button class="button is-info" @click="search">検索</button>
