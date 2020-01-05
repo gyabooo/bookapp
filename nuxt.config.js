@@ -1,6 +1,6 @@
 
 export default {
-  mode: "spa",
+  // mode: "spa",
   /*
    ** Headers of the page
    */
@@ -32,8 +32,17 @@ export default {
     proxy: true
   },
   proxy: {
-    "/api/": "https://iss.ndl.go.jp/",
-    '/thumbnail/': { target: 'https://iss.ndl.go.jp/', pathRewrite: { '^/api/': '' } }
+    // "/api/": "https://iss.ndl.go.jp/",
+    "/.netlify/functions/search": {
+      target: "http://localhost:9000"
+    },
+    "/.netlify/functions/thumbnail": {
+      target: "http://localhost:9000"
+    },
+    // "/thumbnail/": {
+    //   target: "https://iss.ndl.go.jp/",
+    //   pathRewrite: { "^/api/": "" }
+    // }
   },
   plugins: [],
   /*

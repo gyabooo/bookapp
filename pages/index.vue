@@ -1,6 +1,6 @@
 <template>
     <div>
-      <h3 class="title">タイトルで検索してください</h3>
+      <h3 class="title">タイトルを入力してください</h3>
       
       <div class="field">
         <div class="control">
@@ -9,13 +9,15 @@
       </div>
 
       <div class="field has-addons">
-        <div class="control">
+        <div class="control is-expanded">
           <input class="input" type="text" v-model="keyword">
         </div>
         <div class="control">
           <button class="button is-info" @click="search">検索</button>
         </div>
       </div>
+
+      <loading :class="{'is-hidden': !isSearch}"></loading>
 
       <div class="columns is-multiline">
         <book v-for="book in this.books" :key="book.id" :book="book"></book>
@@ -25,39 +27,45 @@
 
 <script>
 import Book from '~/components/Book.vue'
+import Loading from '~/components/Loading.vue'
 
-const convert = require('xml-js');
+// const convert = require('xml-js');
 const axios = require('axios');
-// let path = 'http://localhost:3000/api/sru?operation=searchRetrieve&maximumRecords=10&query=title%3d%22%e6%a1%9c%22%20AND%20from=%222018%22';
-// let path = '/api/sru?operation=searchRetrieve&maximumRecords=10&query=title%3d%22%e6%a1%9c%22%20AND%20from=%222018%22';
 // let path = '/api/opensearch?cnt=20&title=マリーアントワネット&ndc=2&dpid=iss-ndl-opac'
-let path = '/api/opensearch?cnt=20&title='
+let path = '/.netlify/functions/search?title='
 
 export default {
   components: {
-    Book
+    Book,
+    Loading
   },
   data: function() {
     return {
       keyword: '',
       books: [],
-      error: ''
+      error: '',
+      isSearch: false
     }
   },
   methods: {
     search: function() {
       this.error = '';
+      this.isSearch = true;
       this.books.splice(0, this.books.length);
 
       axios
         .get(path + this.keyword)
         .then(res => {
-          this.books = convert.xml2js(res.data, {ignoreComment: true, alwaysChildren: true})
-                        .elements[0].elements[0].elements
-                        .filter(element => element.name === 'item');
+          this.books = res.data.content;
         })
         .catch(e => {
           this.error = e.message;
+        })
+        .finally(() => {
+          if(this.books.length === 0) {
+            this.error = '検索結果が0件です'
+          }
+          this.isSearch = false;
         })
     }
   }
@@ -65,5 +73,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.search-box {
+  width: 90vw;
+}
 </style>

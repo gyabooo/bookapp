@@ -1,10 +1,10 @@
 <template>
-  <div id="wrap" class="columns">
+  <div id="wrap" class="columns is-mobile">
 
-    <header id="header" class="section column has-background-primary">
-      <h1 class="title">
-        本検索アプリ
-      </h1>
+    <header id="header" class="section column has-background-primary has-text-centered">
+      <a href="/">
+        <h1 class="title">本検索アプリ</h1>
+      </a>
     </header>
     
     <div id="contents" class="section column">

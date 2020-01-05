@@ -16,14 +16,15 @@
 
 <script>
 const axios = require('axios');
-let path = '/thumbnail/';
 let no_image_path = '/no-image.png';
+let path = "/.netlify/functions/thumbnail?isbn=";
+let url = "https://iss.ndl.go.jp/thumbnail/";
 
 export default {
   props: ['book'],
   data: function () {
     return {
-      image: 'https://iss.ndl.go.jp/',
+      image: '',
       title: this.book.elements.filter(v => v.name === 'title')[0].elements[0].text,
       description: this.book.elements.filter(function(el){ if(el.name === "description") return true } )[0].elements[0].cdata,
       link: this.book.elements.filter(function(el){ if(el.name === "link") return true } )[0].elements[0].text
@@ -31,7 +32,6 @@ export default {
   },
   created: function() {
     let isbn = this.book.elements.filter(function(el){ if(el.name === "dc:identifier" && el.attributes['xsi:type'] === 'dcndl:ISBN') return true } )
-    let image_path = '';
 
     if (isbn.length === 0) {
       this.image = no_image_path;
@@ -41,7 +41,8 @@ export default {
     axios
       .get(path + isbn[0].elements[0].text)
       .then(res => {
-        this.image = this.image + path + isbn[0].elements[0].text;
+        console.log(res);
+        this.image = url + isbn[0].elements[0].text;
       })
       .catch(e => {
         this.image = no_image_path;
@@ -53,5 +54,8 @@ export default {
 <style scoped>
 .book-content {
   margin-bottom: 40px;
+}
+.card {
+  height: 100%;
 }
 </style>
