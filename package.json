@@ -6,9 +6,10 @@
   "private": true,
   "scripts": {
     "dev": "nuxt",
-    "build": "nuxt build && netlify-lambda build functions/src",
+    "fbuild": "netlify-lambda build functions/src",
+    "build": "nuxt build && yarn fbuild",
     "start": "nuxt start",
-    "generate": "nuxt generate && netlify-lambda build functions/src",
+    "generate": "nuxt generate && yarn fbuild",
     "lambda": "netlify-lambda serve functions/src"
   },
   "dependencies": {
