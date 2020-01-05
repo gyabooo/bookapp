@@ -8,8 +8,7 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate",
-    "lambda": "netlify-lambda serve functions/src"
+    "generate": "nuxt generate"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.9.0",
@@ -21,6 +20,6 @@
     "xml-js": "^1.6.11"
   },
   "devDependencies": {
-    "netlify-lambda": "^1.6.3"
+    "netlify-cli": "^2.25.0"
   }
 }
