@@ -32,17 +32,12 @@ export default {
     proxy: true
   },
   proxy: {
-    // "/api/": "https://iss.ndl.go.jp/",
     "/.netlify/functions/search": {
       target: "http://localhost:9000"
     },
     "/.netlify/functions/thumbnail": {
       target: "http://localhost:9000"
-    },
-    // "/thumbnail/": {
-    //   target: "https://iss.ndl.go.jp/",
-    //   pathRewrite: { "^/api/": "" }
-    // }
+    }
   },
   plugins: [],
   /*

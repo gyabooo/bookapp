@@ -29,9 +29,7 @@
 import Book from '~/components/Book.vue'
 import Loading from '~/components/Loading.vue'
 
-// const convert = require('xml-js');
 const axios = require('axios');
-// let path = '/api/opensearch?cnt=20&title=マリーアントワネット&ndc=2&dpid=iss-ndl-opac'
 let path = '/.netlify/functions/search?title='
 
 export default {

@@ -4,6 +4,7 @@
     <header id="header" class="section column has-background-primary has-text-centered">
       <a href="/">
         <h1 class="title">本検索アプリ</h1>
+        <h2 class="subtitle">国立国会図書館サーチAPI</h2>
       </a>
     </header>
     
@@ -12,7 +13,6 @@
     </div>
 
     <footer id="footer" class="section column footer has-background-grey-lighter">
-      <p>フッター</p>
     </footer>
 
   </div>
