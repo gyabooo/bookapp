@@ -1,4 +1,4 @@
 [build]
-  command = "yarn generate && yarn lambda"
+  command = "yarn generate"
   functions = "functions/dist/"
   publish = "dist"
