@@ -28,13 +28,13 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  axios: {
-    proxy: true
-  },
-  proxy: {
-    "/api/": "https://iss.ndl.go.jp/",
-    '/thumbnail/': { target: 'https://iss.ndl.go.jp/', pathRewrite: { '^/api/': '' } }
-  },
+  // axios: {
+  //   proxy: true
+  // },
+  // proxy: {
+  //   "/api/": "https://iss.ndl.go.jp/",
+  //   '/thumbnail/': { target: 'https://iss.ndl.go.jp/', pathRewrite: { '^/api/': '' } }
+  // },
   plugins: [],
   /*
    ** Nuxt.js dev-modules
