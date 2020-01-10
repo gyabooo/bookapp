@@ -6,15 +6,22 @@
   "private": true,
   "scripts": {
     "dev": "nuxt",
-    "build": "nuxt build",
+    "fbuild": "netlify-lambda build functions/src",
+    "build": "nuxt build && yarn fbuild",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate && yarn fbuild",
+    "lambda": "netlify-lambda serve functions/src"
   },
   "dependencies": {
+    "@nuxtjs/axios": "^5.9.0",
     "@nuxtjs/bulma": "^1.2.1",
+    "axios": "^0.19.0",
     "node-sass": "^4.13.0",
     "nuxt": "^2.0.0",
-    "sass-loader": "^8.0.0"
+    "sass-loader": "^8.0.0",
+    "xml-js": "^1.6.11"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "netlify-lambda": "^1.6.3"
+  }
 }
