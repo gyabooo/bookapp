@@ -28,17 +28,17 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  axios: {
-    proxy: true
-  },
-  proxy: {
-    "/.netlify/functions/search": {
-      target: "http://localhost:9000"
-    },
-    "/.netlify/functions/thumbnail": {
-      target: "http://localhost:9000"
-    }
-  },
+  // axios: {
+  //   proxy: true
+  // },
+  // proxy: {
+  //   "/.netlify/functions/search": {
+  //     target: "http://localhost:9000"
+  //   },
+  //   "/.netlify/functions/thumbnail": {
+  //     target: "http://localhost:9000"
+  //   }
+  // },
   plugins: [],
   /*
    ** Nuxt.js dev-modules
